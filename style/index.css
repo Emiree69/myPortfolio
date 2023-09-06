@@ -1,0 +1,52 @@
+@use postcss-nested;
+
+.menu { grid-area: menu; }
+.header { grid-area: header; }
+.aboutMe { grid-area: aboutMe; }
+
+.grid-container {
+  display: grid;
+  grid-template-areas:
+    'header menu'
+    'aboutMe aboutMe';
+}
+
+body{
+  align-content: center;
+  background-image: url(img/LANDSCAPE\ TRY\ -\ Juslyn.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.menu {
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 2.5vmin;
+  padding-top: 2vmin;
+  
+  & > li {
+    display: inline-flex;
+    background: black;
+    
+    &:is(:hover, :focus-within) > button:not(:active) {
+      --distance: -10px;
+    }
+  }
+  
+  & button {
+    appearance: none;
+    outline: none;
+    font-size: 4vmin;
+    border: 3px solid black;
+    background: white;
+    
+    --distance: 0;
+    transform: translateX(var(--distance)) translateY(var(--distance));
+    
+    @media (prefers-reduced-motion: no-preference) {
+      will-change: transform;
+      transition: transform .2s ease ;
+    }
+  }
+}
