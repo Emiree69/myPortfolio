@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Me</title>
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Dancing+Script:wght@700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../style/aboutpage.css">
+</head>
+<body>
+    <div class="grid-container">
+        <ul class="menu">
+            <li><button class="navigateButton" data-page="page1">Home</button></li>
+            <li><button class="navigateButton" data-page="page2">About Me</button></li>
+            <li><button class="navigateButton" data-page="page4">Contact</button></li>
+        </ul>
+
+        <div class="content">
+            <h1>About me</h1>
+            <p>Hello! My name is Emily Simons and I'm a Front-End Developer student based in The Netherlands.</p>
+            <p>I'm a big fan of working and being creative, when it comes to programming I like keeping it minimalistic and simple. There's just something about taking a canvas and turning it into something. It's like being an artist with a keyboard and screen.</p>
+            <p>What really gets my creative flowing are games, movies, and anime. I find inspiration in the immersive worlds, intricate storylines, and stunning visuals they offer. Whether it's the captivating narratives of movies or the fantastical realms of anime.</p>
+            <p>That's why I'm particularly drawn to the front-end side of programming. It's where I get to blend my love for aesthetics and user experience. Crafting responsive websites and interactive interfaces feels like sculpting a unique experience for every visitor.</p>
+            <br><button id="downloadButton"><a href="../download/EmilySimons_CV.pdf" download="EmilySimons_CV.pdf">Download CV</a></button>
+            <p>My favorite anime opening</p>
+            <audio controls>
+                <source src="../download/X2Download.app - One Piece Opening 1 HD 720p   Special Edition We Are! (128 kbps).mp3">
+              </audio>
+        </div>
+        
+        <img src="../style/img/icon.png" class="icon">
+
+        <div class="skills">
+            <h1>Skills</h1>
+            <section class="team">
+            <div class="container">
+                <div class="profile">
+                <img src="../style/img/html.png"/><span class="name">intermediate</span>
+                </div>
+                <div class="profile">
+                <img src="../style/img/css.jpg"/><span class="name">advanced</span>
+                </div>
+                <div class="profile">
+                <img src="../style/img/javascript.png"/><span class="name">intermediate</span>
+                </div>
+            </div>
+            </section>
+        </div>
+    </div>
+    <script src="../js/about.js"></script>
+</body>
+</html>

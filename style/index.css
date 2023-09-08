@@ -1,0 +1,82 @@
+@use postcss-nested;
+
+*{
+  font-family: system-ui;
+}
+body{
+  margin-top: 9em;
+}
+
+.header { grid-area: header;
+font-size: 3em;
+}
+
+.menu {
+  grid-area: menu;
+  margin-top: 8em;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 2.5vmin;
+  padding-top: 5vmin;
+  
+  & > li {
+    display: inline-flex;
+    background: black;
+    
+    &:is(:hover, :focus-within) > button:not(:active) {
+      --distance: -10px;
+    }
+  }
+  
+  & button {
+    appearance: none;
+    outline: none;
+    font-size: 9vmin;
+    border: 4px solid black;
+    background: white;
+    
+    --distance: 0;
+    transform: translateX(var(--distance)) translateY(var(--distance));
+    
+    @media (prefers-reduced-motion: no-preference) {
+      will-change: transform;
+      transition: transform .2s ease ;
+    }
+  }
+}
+.wrapper{
+  grid-area: wrapper;
+  display: grid;
+  place-items: center;
+}
+
+.typing-demo {
+  width: 26ch;
+  animation: typing 2s steps(26), blink .5s step-end infinite alternate;
+  white-space: nowrap;
+  overflow: hidden;
+  border-right: 3px solid;
+  font-family: monospace;
+  font-size: 4em;
+}
+
+@keyframes typing {
+  from {
+    width: 0
+  }
+}
+    
+@keyframes blink {
+  50% {
+    border-color: transparent
+  }
+}
+
+.grid-container {
+  display: grid;
+  grid-template-areas:
+    'menu header header header'
+    'menu wrapper wrapper wrapper';
+    text-align: center;
+}

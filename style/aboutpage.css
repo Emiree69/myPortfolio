@@ -1,0 +1,149 @@
+@use postcss-nested;
+*{
+  font-family: system-ui;
+}
+.menu {
+  grid-area: menu;
+  margin-left: 22%;
+  display: flex;
+  align-items: flex-start;
+  gap: 5em;
+  padding-top: 2vmin;
+  
+  & > li {
+    display: inline-flex;
+    background: black;
+    
+    &:is(:hover, :focus-within) > button:not(:active) {
+      --distance: -10px;
+    }
+  }
+  
+  & button {
+    appearance: none;
+    outline: none;
+    font-size: 6vmin;
+    border: 3px solid black;
+    background: white;
+    
+    --distance: 0;
+    transform: translateX(var(--distance)) translateY(var(--distance));
+    
+    @media (prefers-reduced-motion: no-preference) {
+      will-change: transform;
+      transition: transform .2s ease ;
+    }
+  }
+}
+.content{  
+grid-area: content;
+width: 75%;
+}
+
+.content p{
+    font-size: 20px;
+}
+
+.content a{
+  text-decoration: none;
+  font-weight: 500;
+}
+
+#downloadButton{
+  margin-bottom: 20px;
+  background-color: white;
+  border: 2px solid black;
+  padding: 2%;
+}
+#downloadButton:hover{
+  background-color: #EAEAEA;
+}
+.icon{  
+grid-area: icon;
+width: 280px ;
+height: 250px;
+align-self: center;
+}
+
+.skills{
+    grid-area: skills;
+    margin-top: 30px;
+}
+.skills img{
+  height: 400px;
+  width: 400px;
+}
+
+.section-heading {
+  font-family: "Dancing Script", cursive;
+  text-align: center;
+  font-size: 64px;
+  color: black;
+  margin: 0 0 70px;
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+  width: 90%;
+  max-width: 1440px;
+  margin: 0 auto;
+}
+
+.profile {
+  position: relative;
+  transition: all 0.3s;
+}
+
+.profile:hover {
+  transform: translateY(25px);
+}
+
+.profile img {
+  max-width: 100%;
+  cursor: pointer;
+}
+
+.profile:not(:first-child) img {
+  margin-left: -20px;
+}
+
+.profile .name {
+  position: absolute;
+  background-color: black;
+  color: #fff;
+  padding: 15px 30px;
+  border-radius: 100px;
+  bottom: -80px; left: 50%;
+  white-space: nowrap;
+  transform: translate(-50%, -50px);
+  letter-spacing: 1px;
+  font-size: 20px;
+  opacity: 0;
+  transition: all 0.3s;
+}
+
+.profile .name::before {
+  content: "";
+  position: absolute;
+  width: 15px; height: 15px;
+  background-color: black;
+  top: 0; left: 50%;
+  transform: translate(-50%, -50%) rotate(45deg);
+}
+
+.profile img:hover + .name {
+  opacity: 1;
+  transform: translateX(-50%);
+}
+
+.grid-container {
+    display: grid;
+    margin: 20px;
+    margin-bottom: 10%;
+    grid-template-areas:
+      'menu menu menu menu'
+      'content content icon icon'
+      'content content icon icon'
+      'skills skills skills skills';
+  }

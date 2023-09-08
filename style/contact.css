@@ -1,0 +1,99 @@
+@use postcss-nested;
+*{
+  font-family: system-ui;
+}
+.menu {
+  grid-area: menu;
+  margin-left: 22%;
+  display: flex;
+  align-items: flex-start;
+  gap: 5em;
+  padding-top: 2vmin;
+  
+  & > li {
+    display: inline-flex;
+    background: black;
+    
+    &:is(:hover, :focus-within) > button:not(:active) {
+      --distance: -10px;
+    }
+  }
+  
+  & button {
+    appearance: none;
+    outline: none;
+    font-size: 6vmin;
+    border: 3px solid black;
+    background: white;
+    
+    --distance: 0;
+    transform: translateX(var(--distance)) translateY(var(--distance));
+    
+    @media (prefers-reduced-motion: no-preference) {
+      will-change: transform;
+      transition: transform .2s ease ;
+    }
+  }
+}
+
+.text{
+    grid-area: text;
+    margin-left: 7%;
+}
+.text h1{
+  margin-left: 7%;
+  font-size: 40px;
+  margin: 0%;
+}
+.text p{
+  margin-left: 7%;
+  font-size: 20px;
+  margin: 0%;
+  margin-bottom: 2%;
+}
+
+.form{
+    grid-area: form;
+    border: 2px solid black;
+    margin-left: 11%;
+    width: 75%;
+    background-image: url(../style/img/formbg.jpg);
+    background-position: center;
+}
+
+.form h1{
+  text-align: center;
+  color: white;
+  text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+}
+
+
+.form button{
+  margin-left: 6em;
+  margin-bottom: 20px;
+  background-color: white;
+  border: 2px solid black;
+  padding: 2%;
+}
+
+.form button:hover{
+  background-color: #EAEAEA;
+  font-weight: 400;
+}
+
+input {
+    border: 2px solid black;
+    display: block;
+    margin: 10px auto;
+    padding: 2%;
+    width: 80%;
+}
+
+.grid-container {
+    display: grid;
+    margin: 20px;
+    grid-template-areas:
+      'menu menu menu menu'
+      'text text text text'
+      'form form form form';
+  }
