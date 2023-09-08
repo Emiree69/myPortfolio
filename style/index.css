@@ -13,7 +13,7 @@ font-size: 3em;
 
 .menu {
   grid-area: menu;
-  margin-top: 8em;
+  margin-top: 2em;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
